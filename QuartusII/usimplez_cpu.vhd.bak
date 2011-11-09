@@ -169,7 +169,7 @@ begin
 							when HALT =>
 								-- 0->CP
 								cp_reg_s<=(others=>'0');
-								estado<=In1;
+								estado<=In1; --In0
 							when LD =>
 								-- (CD)->CD
 								addr_bus_o<=std_logic_vector(cd_reg_s);

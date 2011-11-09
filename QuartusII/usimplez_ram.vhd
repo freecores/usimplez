@@ -39,11 +39,12 @@
 --//// PURPOSE. See the GNU Lesser General Public License for more	////
 --//// details. 													////
 --//// 																////
---//// You should have received WIDTH_ADDRESS copy of the GNU Lesser General 	////
+--//// You should have received a copy of the GNU Lesser General 	////
 --//// Public License along with this source; if not, download it 	////
 --//// from http://www.opencores.org/lgpl.shtml 					////
 --//// 																////
 --//////////////////////////////////////////////////////////////////////
+
 
 library ieee;
 use ieee.std_logic_1164.all;

@@ -70,30 +70,30 @@ architecture str of usimplez_top is
  
 	component usimplez_cpu
 		generic
-		(	WIDTH_DATA_BUS:	natural;
+		(	WIDTH_WORD:	natural;
 			WIDTH_OPERATION_CODE: natural;
 			WIDTH_ADDRESS: natural;
 			--Instructions:
-			ST: 	std_logic_vector(2 downto 0);
-			LD: 	std_logic_vector(2 downto 0);
-			ADD: 	std_logic_vector(2 downto 0);
-			BR: 	std_logic_vector(2 downto 0);
-			BZ: 	std_logic_vector(2 downto 0);
-			CLR: 	std_logic_vector(2 downto 0);
-			DEC: 	std_logic_vector(2 downto 0);
-			HALT: 	std_logic_vector(2 downto 0)
+			ST: 	std_logic_vector;
+			LD: 	std_logic_vector;
+			ADD: 	std_logic_vector;
+			BR: 	std_logic_vector;
+			BZ: 	std_logic_vector;
+			CLR: 	std_logic_vector;
+			DEC: 	std_logic_vector;
+			HALT: 	std_logic_vector
 		);
 		port
 		(	clk_i : in std_logic;
 			rst_i : in std_logic;
-			data_bus_i : in std_logic_vector(WIDTH_DATA_BUS-1 downto 0); --here
+			data_bus_i : in std_logic_vector(WIDTH_WORD-1 downto 0);
 			we_o : out std_logic;
 			in0_o : out std_logic;
 			in1_o : out std_logic;
 			op0_o : out std_logic;
 			op1_o : out std_logic;
-			addr_bus_o : out std_logic_vector(8 downto 0);
-			data_bus_o : out std_logic_vector(11 downto 0)
+			addr_bus_o : out std_logic_vector(WIDTH_ADDRESS-1 downto 0);
+			data_bus_o : out std_logic_vector(WIDTH_WORD-1 downto 0)
 		);
 	end component;
 	
@@ -105,9 +105,9 @@ architecture str of usimplez_top is
 		port
 		(	clk_i : in std_logic;
 			we_i : in std_logic;
-			addr_i : in std_logic_vector(8 downto 0);
-			data_i : in std_logic_vector(11 downto 0);
-			data_o : out std_logic_vector(11 downto 0)
+			addr_i : in std_logic_vector(WIDTH_ADDRESS-1 downto 0);
+			data_i : in std_logic_vector(WIDTH_WORD-1 downto 0);
+			data_o : out std_logic_vector(WIDTH_WORD-1 downto 0)
 		);
 	end component;
 	
@@ -122,7 +122,7 @@ we_o <= we_s;
 
 cpu:usimplez_cpu
 	generic map
-	(	WIDTH_DATA_BUS => 12,
+	(	WIDTH_WORD => 12,
 		WIDTH_ADDRESS => 9,
 		WIDTH_OPERATION_CODE => 3,
 		ST		=> "000",

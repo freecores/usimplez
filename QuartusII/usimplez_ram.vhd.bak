@@ -39,11 +39,12 @@
 --//// PURPOSE. See the GNU Lesser General Public License for more	////
 --//// details. 													////
 --//// 																////
---//// You should have received WIDTH_ADDRESS copy of the GNU Lesser General 	////
+--//// You should have received a copy of the GNU Lesser General 	////
 --//// Public License along with this source; if not, download it 	////
 --//// from http://www.opencores.org/lgpl.shtml 					////
 --//// 																////
 --//////////////////////////////////////////////////////////////////////
+
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -74,8 +75,8 @@ architecture rtl of usimplez_ram is
 
 	signal ram : memory_t;
 	attribute ram_init_file : string;
---	attribute ram_init_file of ram : signal is "sumador.mif"; --code sumador.txt
-	attribute ram_init_file of ram : signal is "fibonacci.mif"; --code fibonacci.txt
+	attribute ram_init_file of ram : signal is "adder.mif"; --code adder.txt
+--	attribute ram_init_file of ram : signal is "fibonacci.mif"; --code fibonacci.txt
 	
 	signal addr_reg_s : unsigned((WIDTH_ADDRESS-1) downto 0);
 
